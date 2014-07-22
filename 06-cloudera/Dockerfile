@@ -21,6 +21,7 @@ RUN curl http://archive.cloudera.com/cdh4/one-click-install/redhat/6/x86_64/clou
   echo "export ZOOKEEPER_HOME=/usr/lib/zookeeper" > /etc/profile.d/zookeeper-env.sh && \
   echo "export PATH=\$ZOOKEEPER_HOME/bin:\$PATH" >> /etc/profile.d/zookeeper-env.sh && \
   cp /docker/supervisord-zookeeper.conf /etc/supervisor/conf.d/supervisord-zookeeper.conf && \
-  cp /docker/supervisord-hdfs.conf /etc/supervisor/conf.d/supervisord-hdfs.conf 
+  cp /docker/supervisord-hdfs.conf /etc/supervisor/conf.d/supervisord-hdfs.conf && \
+  chmod g+w /usr/lib/hadoop
 
 CMD ["/usr/bin/supervisord", "-n" ]
