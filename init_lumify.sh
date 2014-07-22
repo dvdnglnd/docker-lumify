@@ -1,6 +1,4 @@
 #!/bin/bash
-su - hdfs -c 'hdfs namenode -format'
-#
 su - hdfs -c 'hdfs dfs -mkdir /accumulo'
 su - hdfs -c 'hdfs dfs -mkdir -p /user/accumulo'
 su - hdfs -c 'hdfs dfs -chown accumulo:accumulo /accumulo'

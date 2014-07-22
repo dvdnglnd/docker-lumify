@@ -24,4 +24,10 @@ RUN curl http://archive.cloudera.com/cdh4/one-click-install/redhat/6/x86_64/clou
   cp /docker/supervisord-hdfs.conf /etc/supervisor/conf.d/supervisord-hdfs.conf && \
   chmod g+w /usr/lib/hadoop
 
+USER hdfs
+
+RUN hdfs namenode -format
+
+USER root
+
 CMD ["/usr/bin/supervisord", "-n" ]
